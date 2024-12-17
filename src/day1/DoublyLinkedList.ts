@@ -100,11 +100,11 @@ export default class DoublyLinkedList<T> {
         }
 
         if(curr.prev){
-            curr.prev = curr.next;
+            curr.prev.next = curr.next;
         }
 
         if(curr.next){
-            curr.next = curr.prev;
+            curr.next.prev = curr.prev;
         }
 
         if(curr === this.head){
@@ -130,11 +130,12 @@ export default class DoublyLinkedList<T> {
             if (!node){
                 return undefined
             }
+
 }
 
     private getAt(idx: number): Node<T> | undefined{
         let curr = this.head;
-        for (let i = 0; curr && i < TimeRanges.length; ++i){
+        for (let i = 0; curr && i < idx; ++i){
             curr = curr.next;
         }
 
